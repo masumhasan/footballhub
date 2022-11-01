@@ -4,15 +4,15 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/team_venue.dart';
-import '../resources/constants_key.dart';
 import '../models/league.dart';
+import '../resources/constants_key.dart';
 
 class LeagueService {
   static const _apiUrl = "api-football-beta.p.rapidapi.com";
   static const _standingsPath = "/standings";
   static const _teamsPath = "/teams";
   static const _headers = {
-    "x-rapidapi-key": rapiApiKeyDennis,
+    "x-rapidapi-key": rapidApiKeyDennis,
     "x-rapidapi-host": "api-football-beta.p.rapidapi.com"
   };
 

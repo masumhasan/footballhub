@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/views/home_page.dart';
+import 'views/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());

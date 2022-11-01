@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
             backgroundColor: appBackgroundColor,
-            expandedHeight: 160,
+            expandedHeight: 100,
             elevation: 0,
             stretch: true,
             flexibleSpace: FlexibleSpaceBar(
