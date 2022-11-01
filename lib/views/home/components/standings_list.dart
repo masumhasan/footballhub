@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/views/home/components/standings_card.dart';
-import 'package:football_app/views/team_venue_details/team_venue_detail.dart';
 import 'package:football_app/views/team_venue_details/team_venue_detail_state.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 import '../../../models/league.dart';
-import '../../../services/league_service.dart';
 import 'standings_header.dart';
 
 class StandingsList extends StatelessWidget {

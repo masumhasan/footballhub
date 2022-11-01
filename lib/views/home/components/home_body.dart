@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../models/league.dart';
 import 'standings_list.dart';
 
