@@ -1,5 +1,5 @@
-import 'dart:math';
 import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,47 +12,31 @@ class LeagueService {
   static const _standingsPath = "/standings";
   static const _teamsPath = "/teams";
   static const _headers = {
-    "x-rapidapi-key": rapiApiKeyDennis,
+    "x-rapidapi-key": rapidApiKeyDennis,
     "x-rapidapi-host": "api-football-beta.p.rapidapi.com"
   };
 
   static Future<League> getLeague(String leagueId) async {
-    var dateTimeNow = DateTime.now();
-    var params = {
-      'season': dateTimeNow.year.toString(),
-      'league': leagueId,
+    final queryParams = {
+      "season": "20222",
+      "league": leagueId,
     };
-    var request = http.Request(
-      'GET',
-      Uri.https(
-        _apiUrl,
-        _standingsPath,
-        params,
-      ),
-    );
-    request.headers.addAll(_headers);
+    final uri = Uri.https(_apiUrl, _standingsPath, queryParams);
 
-    http.StreamedResponse response = await request.send();
-
-    if (response.statusCode == 200) {
-      var responseJsonString =
-          json.decode(await response.stream.bytesToString());
-      var leagueJsonString = responseJsonString['response'][0]['league'];
-      var league = League.fromJson(leagueJsonString);
-      return league;
-    } else {
-      print('Error: ${response.stream.bytesToString()}');
-      throw e;
+    try {
+      final response = await http.get(uri, headers: _headers);
+      return League.fromJson(
+          jsonDecode(response.body)['response'][0]['league']);
+    } catch (error) {
+      print(error);
+      rethrow;
     }
   }
 
   static Future<League> getMockLeague() async {
     final String response =
         await rootBundle.loadString('lib/assets/mockLeague.json');
-    var responseJsonString = json.decode(response);
-    var leagueJsonString = responseJsonString['response'][0]['league'];
-    var league = League.fromJson(leagueJsonString);
-    return league;
+    return League.fromJson(jsonDecode(response)['response'][0]['league']);
   }
 
   static Future<TeamVenue> getTeamVenue(String teamId) async {

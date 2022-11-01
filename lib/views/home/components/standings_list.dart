@@ -16,12 +16,12 @@ class StandingsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StickyHeader(
-      header: StandingsHeader(),
+      header: const StandingsHeader(),
       content: MediaQuery.removePadding(
         context: context,
         removeTop: true,
         child: ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: league.standings[0].length,
           itemBuilder: (context, index) => StandingsCard(
