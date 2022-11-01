@@ -1,29 +1,36 @@
 import 'dart:math';
-import 'package:flutter/services.dart';
-
-import '../models/league.dart';
 import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
+import '../models/team_venue.dart';
+import '../resources/constants_key.dart';
+import '../models/league.dart';
+
 class LeagueService {
-  static Future<League> getLeague() async {
-    var headers = {
-      "x-rapidapi-key": "61fad4986bmsh5142dd75777b52cp13c2ccjsn7982019478dc",
-      "x-rapidapi-host": "api-football-beta.p.rapidapi.com"
-    };
+  static const _apiUrl = "api-football-beta.p.rapidapi.com";
+  static const _standingsPath = "/standings";
+  static const _teamsPath = "/teams";
+  static const _headers = {
+    "x-rapidapi-key": rapiApiKeyDennis,
+    "x-rapidapi-host": "api-football-beta.p.rapidapi.com"
+  };
+
+  static Future<League> getLeague(String leagueId) async {
+    var dateTimeNow = DateTime.now();
     var params = {
-      'season': '2022',
-      'league': '88',
+      'season': dateTimeNow.year.toString(),
+      'league': leagueId,
     };
     var request = http.Request(
       'GET',
       Uri.https(
-        "api-football-beta.p.rapidapi.com",
-        "/standings",
+        _apiUrl,
+        _standingsPath,
         params,
       ),
     );
-    request.headers.addAll(headers);
+    request.headers.addAll(_headers);
 
     http.StreamedResponse response = await request.send();
 
@@ -34,7 +41,6 @@ class LeagueService {
       var league = League.fromJson(leagueJsonString);
       return league;
     } else {
-      // TODO: Error handling
       print('Error: ${response.stream.bytesToString()}');
       throw e;
     }
@@ -47,5 +53,20 @@ class LeagueService {
     var leagueJsonString = responseJsonString['response'][0]['league'];
     var league = League.fromJson(leagueJsonString);
     return league;
+  }
+
+  static Future<TeamVenue> getTeamVenue(String teamId) async {
+    // const url = 'https://api-football-beta.p.rapidapi.com/teams?id=541';
+    // const url = 'https://api-football-beta.p.rapidapi.com/teams?id=197';
+    final queryParams = {"id": teamId};
+    final uri = Uri.https(_apiUrl, _teamsPath, queryParams);
+
+    try {
+      final response = await http.get(uri, headers: _headers);
+      return TeamVenue.fromJson(jsonDecode(response.body)['response'][0]);
+    } catch (error) {
+      print(error);
+      rethrow;
+    }
   }
 }
