@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/resources/constants.dart';
-import 'package:football_app/services/league_service.dart';
-import 'package:football_app/views/home/components/home_body.dart';
 
+import '../home/components/home_body.dart';
+import '../../resources/constants.dart';
+import '../../services/league_service.dart';
 import '../../models/league.dart';
 
 class HomePage extends StatefulWidget {

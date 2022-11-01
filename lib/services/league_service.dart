@@ -13,12 +13,12 @@ class LeagueService {
   static const _teamsPath = "/teams";
   static const _headers = {
     "x-rapidapi-key": rapidApiKeyDennis,
-    "x-rapidapi-host": "api-football-beta.p.rapidapi.com"
+    "x-rapidapi-host": _apiUrl
   };
 
   static Future<League> getLeague(String leagueId) async {
     final queryParams = {
-      "season": "20222",
+      "season": "2022",
       "league": leagueId,
     };
     final uri = Uri.https(_apiUrl, _standingsPath, queryParams);
