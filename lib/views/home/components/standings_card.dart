@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/resources/constants.dart';
-import '../../models/standing.dart';
+
+import '../../../models/standing.dart';
 
 class StandingsCard extends StatelessWidget {
   final Standing standing;

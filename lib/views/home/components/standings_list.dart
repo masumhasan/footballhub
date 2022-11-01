@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/views/components/standings_card.dart';
-import 'package:football_app/views/components/standings_header.dart';
 import 'package:sticky_headers/sticky_headers.dart';
-import '../../models/league.dart';
+
+import './standings_card.dart';
+import './standings_header.dart';
+import '../../../models/league.dart';
 
 class StandingsList extends StatelessWidget {
   final League league;

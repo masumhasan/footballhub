@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/team_venue.dart';
+import '../../../models/team_venue.dart';
 
 class TeamVenueDetailTeam extends StatelessWidget {
   final TeamVenue teamVenue;
