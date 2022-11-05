@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/resources/constants.dart';
+
+import '../../../resources/constants.dart';
 import '../../../models/standing.dart';
 
 class StandingsCard extends StatelessWidget {
   final Standing standing;
-  final VoidCallback opTap;
+  final VoidCallback onTap;
+
   const StandingsCard({
     super.key,
     required this.standing,
-    required this.opTap,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: opTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           border: Border(

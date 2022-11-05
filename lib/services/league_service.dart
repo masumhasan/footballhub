@@ -28,7 +28,7 @@ class LeagueService {
       return League.fromJson(
           jsonDecode(response.body)['response'][0]['league']);
     } catch (error) {
-      print(error);
+      // print(error);
       rethrow;
     }
   }
@@ -49,7 +49,7 @@ class LeagueService {
       final response = await http.get(uri, headers: _headers);
       return TeamVenue.fromJson(jsonDecode(response.body)['response'][0]);
     } catch (error) {
-      print(error);
+      // print(error);
       rethrow;
     }
   }

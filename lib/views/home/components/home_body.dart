@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
+import './standings_list.dart';
 import '../../../models/league.dart';
-import 'standings_list.dart';
 
 class HomeBody extends StatelessWidget {
   final League league;

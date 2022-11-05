@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               centerTitle: false,
               title: Text(
-                league?.name ?? "n/a",
+                league?.name ?? "Standings",
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,

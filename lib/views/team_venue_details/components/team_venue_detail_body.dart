@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import './components/team_venue_detail_team.dart';
-import './components/team_venue_detail_venue.dart';
-import '../../models/team_venue.dart';
+import 'team_venue_detail_team.dart';
+import 'team_venue_detail_venue.dart';
+import '../../../models/team_venue.dart';
 
-class TeamDetail extends StatelessWidget {
+class TeamDetailBody extends StatelessWidget {
   final TeamVenue teamVenue;
 
-  const TeamDetail({super.key, required this.teamVenue});
+  const TeamDetailBody({super.key, required this.teamVenue});
 
   @override
   Widget build(BuildContext context) {

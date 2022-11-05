@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'views/home/home_page.dart';
+
+import './views/home/home_page.dart';
+import './views/team_venue_details/team_venue_detail_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const HomePage(),
+      // home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        TeamVenueDetailPage.routeName: (context) => const TeamVenueDetailPage()
+      },
     );
   }
 }

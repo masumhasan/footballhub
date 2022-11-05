@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/resources/constants.dart';
+
+import '../../../resources/constants.dart';
 
 class StandingsHeader extends StatelessWidget {
   const StandingsHeader({super.key});
