@@ -6,6 +6,8 @@ import '../../services/league_service.dart';
 import '../../models/league.dart';
 
 class HomePage extends StatefulWidget {
+  static const routeName = '/';
+
   const HomePage({super.key});
 
   @override

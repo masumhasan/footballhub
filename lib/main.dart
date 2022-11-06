@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import './views/home/home_page.dart';
 import './views/team_venue_details/team_venue_detail_page.dart';
 
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       // home: const HomePage(),
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomePage(),
+        HomePage.routeName: (context) => const HomePage(),
         TeamVenueDetailPage.routeName: (context) => const TeamVenueDetailPage()
       },
     );
