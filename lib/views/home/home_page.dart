@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../home/components/home_body.dart';
 import '../../resources/constants.dart';
 import '../../services/league_service.dart';
@@ -20,29 +19,30 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(),
       backgroundColor: appBackgroundColor,
       body: NestedScrollView(
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
             backgroundColor: appBackgroundColor,
-            expandedHeight: 100,
+            expandedHeight: 108,
             elevation: 0,
-            stretch: true,
+            iconTheme: const IconThemeData(color: appTextColor),
             flexibleSpace: FlexibleSpaceBar(
-              titlePadding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              centerTitle: false,
-              title: Text(
-                league?.name ?? "Standings",
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+              title: Image.network(
+                league?.logo ?? "",
+                height: 60,
+                fit: BoxFit.fitHeight,
               ),
+              titlePadding: const EdgeInsets.only(top: 48, bottom: 12),
             ),
-            floating: true,
             pinned: true,
+            onStretchTrigger: () {
+              // TODO: Pull to refresh
+              print('TODO: Pull to refresh');
+              throw Error();
+            },
           ),
         ],
         body: FutureBuilder(

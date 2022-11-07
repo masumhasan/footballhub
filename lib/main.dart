@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // home: const HomePage(),
       initialRoute: '/',
       routes: {
         HomePage.routeName: (context) => const HomePage(),
