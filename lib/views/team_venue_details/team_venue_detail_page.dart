@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/models/team_venue.dart';
-
 import '../../services/league_service.dart';
 import './components/team_venue_detail_body.dart';
 import '../../resources/constants.dart';

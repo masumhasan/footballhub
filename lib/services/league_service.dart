@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
-
 import '../models/team_venue.dart';
 import '../models/league.dart';
 import '../resources/constants_key.dart';

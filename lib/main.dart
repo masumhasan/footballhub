@@ -20,7 +20,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        HomePage.routeName: (context) => const HomePage(),
+        HomePage.routeName: (context) => const HomePage(
+              leagueId: 88,
+            ),
         TeamVenueDetailPage.routeName: (context) => const TeamVenueDetailPage()
       },
     );
