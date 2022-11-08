@@ -38,8 +38,6 @@ class LeagueService {
   }
 
   static Future<TeamVenue> getTeamVenue(String teamId) async {
-    // const url = 'https://api-football-beta.p.rapidapi.com/teams?id=541';
-    // const url = 'https://api-football-beta.p.rapidapi.com/teams?id=197';
     final queryParams = {"id": teamId};
     final uri = Uri.https(_apiUrl, _teamsPath, queryParams);
 
