@@ -48,7 +48,7 @@ class StandingsCard extends StatelessWidget {
                       standing.team.name,
                       style: const TextStyle(
                         fontWeight: FontWeight.w400,
-                        fontSize: 18,
+                        fontSize: 14,
                         color: appTextColor,
                       ),
                     ),
@@ -61,15 +61,35 @@ class StandingsCard extends StatelessWidget {
                   children: [
                     Text(
                       standing.allGames.played.toString(),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: appTextColor,
+                      ),
                     ),
                     Text(
                       '${standing.allGames.goals.goalsFor.toString()}:${standing.allGames.goals.against.toString()}',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: appTextColor,
+                      ),
                     ),
                     Text(
                       standing.goalsDiff.toString(),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: appTextColor,
+                      ),
                     ),
                     Text(
                       standing.points.toString(),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: appTextColor,
+                      ),
                     )
                   ],
                 ),

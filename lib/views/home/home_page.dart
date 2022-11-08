@@ -14,6 +14,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   League? league;
+  late Future _getLeagueFuture;
+
+  Future _obtainGetLeagueFuture() {
+    return LeagueService.getLeague("88");
+  }
+
+  @override
+  void initState() {
+    _getLeagueFuture = _obtainGetLeagueFuture();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,17 +55,19 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         body: FutureBuilder(
-          future: LeagueService.getLeague("88"),
+          future: _getLeagueFuture,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (snapshot.hasData) {
+            } else if (snapshot.hasError) {
+              return const Center(
+                child: Text('Oops, an error occured!'),
+              );
+            } else {
               league = snapshot.data!;
               return HomeBody(league: snapshot.data!);
-            } else {
-              return const Text('Error happened');
             }
           },
         ),

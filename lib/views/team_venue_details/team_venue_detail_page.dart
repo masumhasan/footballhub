@@ -30,12 +30,18 @@ class TeamVenueDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final routeArguments =
         ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-    final teamId = routeArguments['teamId'] ?? "0";
+    final teamId = routeArguments['teamId'] ?? '0';
     final teamName = routeArguments['teamName'] ?? 'Team Detail';
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(teamName),
+        title: Text(
+          teamName,
+          style: const TextStyle(color: Colors.black),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.black, //change your color here
+        ),
         backgroundColor: appBackgroundColor,
       ),
       backgroundColor: appBackgroundColor,
@@ -46,12 +52,24 @@ class TeamVenueDetailPage extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (snapshot.hasData) {
+          } else if (snapshot.hasError) {
+            return AlertDialog(
+              title: const Text('Oops, en error ocurred!'),
+              content: const Text(
+                  'Something went wrong during loading of the standigs...'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('Close'),
+                )
+              ],
+            );
+          } else {
             return TeamDetailBody(
               teamVenue: snapshot.data!,
             );
-          } else {
-            return const Text('Error happened');
           }
         },
       ),

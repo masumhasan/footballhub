@@ -13,12 +13,12 @@ class StandingsList extends StatelessWidget {
     required this.league,
   });
 
-  void selectTeam(BuildContext buildContext) {
+  void selectTeam(BuildContext buildContext, int teamId, String teamName) {
     Navigator.of(buildContext).pushNamed(
       '/team-detail',
       arguments: {
-        'teamId': "197",
-        'teamName': 'PSV Eindhoven',
+        'teamId': '$teamId',
+        'teamName': teamName,
       },
     );
   }
@@ -36,7 +36,11 @@ class StandingsList extends StatelessWidget {
           itemCount: league.standings[0].length,
           itemBuilder: (context, index) => StandingsCard(
             standing: league.standings[0][index],
-            onTap: (() => selectTeam(context)),
+            onTap: (() => selectTeam(
+                  context,
+                  league.standings[0][index].team.id,
+                  league.standings[0][index].team.name,
+                )),
           ),
         ),
       ),
