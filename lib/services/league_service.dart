@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
-
 import '../models/team_venue.dart';
 import '../models/league.dart';
 import '../resources/constants_key.dart';
@@ -12,7 +10,7 @@ class LeagueService {
   static const _standingsPath = "/standings";
   static const _teamsPath = "/teams";
   static const _headers = {
-    "x-rapidapi-key": rapidApiKeyCasper,
+    "x-rapidapi-key": rapidApiKeyDennis,
     "x-rapidapi-host": _apiUrl
   };
 
@@ -40,8 +38,6 @@ class LeagueService {
   }
 
   static Future<TeamVenue> getTeamVenue(String teamId) async {
-    // const url = 'https://api-football-beta.p.rapidapi.com/teams?id=541';
-    // const url = 'https://api-football-beta.p.rapidapi.com/teams?id=197';
     final queryParams = {"id": teamId};
     final uri = Uri.https(_apiUrl, _teamsPath, queryParams);
 

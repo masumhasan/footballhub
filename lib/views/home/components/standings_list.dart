@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sticky_headers/sticky_headers.dart';
-
 import './standings_header.dart';
 import './standings_card.dart';
 import '../../../models/league.dart';
@@ -17,7 +16,7 @@ class StandingsList extends StatelessWidget {
     Navigator.of(buildContext).pushNamed(
       '/team-detail',
       arguments: {
-        'teamId': '$teamId',
+        'teamId': teamId.toString(),
         'teamName': teamName,
       },
     );

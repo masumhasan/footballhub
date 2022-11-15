@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../resources/constants.dart';
 import '../../../models/standing.dart';
 

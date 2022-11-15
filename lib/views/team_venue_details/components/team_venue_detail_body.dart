@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'team_venue_detail_team.dart';
 import 'team_venue_detail_venue.dart';
 import '../../../models/team_venue.dart';
