@@ -6,6 +6,21 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(
+        const AssetImage("lib/assets/images/premier-league-logo.png"), context);
+    precacheImage(
+        const AssetImage("lib/assets/images/eredivisie-brand-stamp-full.png"),
+        context);
+    precacheImage(
+        const AssetImage(
+            "lib/assets/images/LaLiga_Santander_logo_(stacked).png"),
+        context);
+    precacheImage(const AssetImage("lib/assets/images/Ligue1.png"), context);
+    precacheImage(
+        const AssetImage("lib/assets/images/Serie_A_logo_2022.png"), context);
+    precacheImage(
+        const AssetImage("lib/assets/images/Bundesliga_logo_(2017).png"),
+        context);
     return Drawer(
       child: SingleChildScrollView(
         child: Column(
