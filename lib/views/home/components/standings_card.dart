@@ -20,7 +20,6 @@ class StandingsCard extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: appTextColor.withOpacity(0.2),
               width: 1,
             ),
           ),
@@ -37,7 +36,6 @@ class StandingsCard extends StatelessWidget {
                       style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 14,
-                        color: appTextColor,
                       ),
                     ),
                     const SizedBox(
@@ -48,7 +46,6 @@ class StandingsCard extends StatelessWidget {
                       style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 14,
-                        color: appTextColor,
                       ),
                     ),
                   ],
@@ -63,7 +60,6 @@ class StandingsCard extends StatelessWidget {
                       style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 14,
-                        color: appTextColor,
                       ),
                     ),
                     Text(
@@ -71,7 +67,6 @@ class StandingsCard extends StatelessWidget {
                       style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 14,
-                        color: appTextColor,
                       ),
                     ),
                     Text(
@@ -79,7 +74,6 @@ class StandingsCard extends StatelessWidget {
                       style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 14,
-                        color: appTextColor,
                       ),
                     ),
                     Text(
@@ -87,7 +81,6 @@ class StandingsCard extends StatelessWidget {
                       style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 14,
-                        color: appTextColor,
                       ),
                     )
                   ],

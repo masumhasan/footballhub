@@ -29,6 +29,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_bloc:
+  equatable:
   flutter:
     sdk: flutter
   http: 0.13.5
@@ -54,8 +56,24 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: lib/assets/fonts/Quicksand-Bold.ttf
+          weight: 800
+        - asset: lib/assets/fonts/Quicksand-SemiBold.ttf
+          weight: 700
+        - asset: lib/assets/fonts/Quicksand-Medium.ttf
+          weight: 600
+        - asset: lib/assets/fonts/Quicksand-Regular.ttf
+          weight: 400
+        - asset: lib/assets/fonts/Quicksand-Light.ttf
+          weight: 200
+    
+
   assets:
     - lib/assets/mockLeague.json
+    - lib/assets/leaguesOverview.json
     - lib/assets/images/premier-league-logo.png
     - lib/assets/images/eredivisie-brand-stamp-full.png
     - lib/assets/images/Bundesliga_logo_(2017).png

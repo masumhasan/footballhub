@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import './views/home/home_page.dart';
-import './views/team_venue_details/team_venue_detail_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:football_app/resources/constants.dart';
+import 'package:football_app/services/league_service.dart';
+import 'package:football_app/views/overview/overview_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,17 +16,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Football app",
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      themeMode: ThemeMode.system,
+      home: MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider(
+            create: (context) => LeagueService(),
+          ),
+        ],
+        child: const OverviewPage(),
       ),
-      initialRoute: '/',
-      routes: {
-        HomePage.routeName: (context) => const HomePage(
-              leagueId: 88,
-            ),
-        TeamVenueDetailPage.routeName: (context) => const TeamVenueDetailPage()
-      },
     );
   }
 }

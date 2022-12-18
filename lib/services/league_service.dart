@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:football_app/models/overview_league.dart';
 import 'package:http/http.dart' as http;
+import '../models/overview_league_list.dart';
 import '../models/team_venue.dart';
 import '../models/league.dart';
 import '../resources/constants_key.dart';
@@ -14,7 +16,7 @@ class LeagueService {
     "x-rapidapi-host": _apiUrl
   };
 
-  static Future<League> getLeague(String leagueId) async {
+  Future<League> getLeague(String leagueId) async {
     final queryParams = {
       "season": "2022",
       "league": leagueId,
@@ -31,13 +33,19 @@ class LeagueService {
     }
   }
 
-  static Future<League> getMockLeague() async {
+  Future<League> getMockLeague() async {
     final String response =
         await rootBundle.loadString('lib/assets/mockLeague.json');
     return League.fromJson(jsonDecode(response)['response'][0]['league']);
   }
 
-  static Future<TeamVenue> getTeamVenue(String teamId) async {
+  Future<OverviewLeagueList> getLeaguesOverview() async {
+    final String response =
+        await rootBundle.loadString('lib/assets/leaguesOverview.json');
+    return OverviewLeagueList.fromJson(jsonDecode(response)['response'][0]);
+  }
+
+  Future<TeamVenue> getTeamVenue(String teamId) async {
     final queryParams = {"id": teamId};
     final uri = Uri.https(_apiUrl, _teamsPath, queryParams);
 
