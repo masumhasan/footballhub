@@ -16,6 +16,7 @@ class SideMenu extends StatelessWidget {
             "lib/assets/images/LaLiga_Santander_logo_(stacked).png"),
         context);
     precacheImage(const AssetImage("lib/assets/images/Ligue1.png"), context);
+    precacheImage(const AssetImage("lib/assets/images/bpl.png"), context);
     precacheImage(
         const AssetImage("lib/assets/images/Serie_A_logo_2022.png"), context);
     precacheImage(
@@ -60,11 +61,11 @@ class SideMenu extends StatelessWidget {
             ),
             ListTile(
               leading: Image.asset(
-                "lib/assets/images/bpl.png",
+                "lib/assets/images/eredivisie-brand-stamp-full.png",
                 width: 32,
               ),
               title: const Text(
-                "Bangladesh Premier League",
+                "FIFA",
                 style: TextStyle(fontSize: 16),
               ),
               onTap: () => Navigator.of(context).pushReplacement(
