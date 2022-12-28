@@ -60,11 +60,11 @@ class SideMenu extends StatelessWidget {
             ),
             ListTile(
               leading: Image.asset(
-                "lib/assets/images/eredivisie-brand-stamp-full.png",
+                "lib/assets/images/bpl.png",
                 width: 32,
               ),
               title: const Text(
-                "Eredivisie",
+                "Bangladesh Premier League",
                 style: TextStyle(fontSize: 16),
               ),
               onTap: () => Navigator.of(context).pushReplacement(
